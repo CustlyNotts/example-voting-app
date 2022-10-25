@@ -24,6 +24,7 @@ pipeline {
             }
             
         }
+}
             stage('three') {
             steps {
                 echo 'Packaging worker app'
@@ -40,4 +41,5 @@ pipeline {
             echo 'Pipeline for worker app is completed...'
         }
     }
+}
 }
