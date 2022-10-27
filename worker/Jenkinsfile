@@ -52,7 +52,7 @@ pipeline {
 }
             steps {
                 dir('worker') {
-		sh 'mvn package -DskipTests'
+		sh 'mvn package -D skipTests'
 		archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
             }
             
@@ -66,6 +66,7 @@ pipeline {
 	}
 	steps {
 		echo 'Packaging worker app with docker'
+		sh 'docker logout'
 		script {
 		   docker.withRegistry('https://index.docker.io/v1', 'docker-login') {
 			def workerImage = docker.build("custlynotts/worker:v${env.BUILD_ID}", "./worker")
