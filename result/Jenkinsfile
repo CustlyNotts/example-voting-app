@@ -65,5 +65,5 @@ stage('docker-package') {
             echo 'Pipeline for result app is completed...'
         }
     }
-}
+
 
