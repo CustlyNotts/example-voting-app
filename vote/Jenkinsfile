@@ -21,6 +21,7 @@ pipeline {
             }
         }
         
+	    
         stage('testing') {
 		agent {
 			docker {
@@ -55,8 +56,8 @@ stage('docker-package') {
 			voteImage.push("${env.BRANCH}")
 			}
 		}
-	}
-}            
+	  }
+     }            
 
 }
     
