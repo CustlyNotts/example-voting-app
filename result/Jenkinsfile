@@ -8,6 +8,7 @@ pipeline {
 			docker {
 			image 'node:8.16.0-alpine'
 		}
+}
 		when {
 			changeset "**/result/**"
 }
@@ -36,6 +37,7 @@ pipeline {
             
         }
 }
+}
 
 stage('docker-package') {
 	  agent any
@@ -63,5 +65,4 @@ stage('docker-package') {
         }
     }
 }
-}
-}
+
