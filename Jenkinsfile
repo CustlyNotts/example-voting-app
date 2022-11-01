@@ -106,14 +106,14 @@ pipeline {
 		        script {
 		            docker.withRegistry('https://index.docker.io/v1/', 'docker-login') {
 			            def voteImage = docker.build("custlynotts/vote:v${env.BUILD_ID}", "./vote")
-			                voteImage.push()
-			                voteImage.push("${env.BRANCH}")
-			            }
+			            voteImage.push()
+			            voteImage.push("${env.BRANCH}")
+			            
 		            }
 	            }
             }
-
         }
+        
 
         stage('worker-build') {
 		    agent {
